@@ -23,5 +23,16 @@ class User {
 var userOne = new User("rijal", "rijal@husen.com");
 var userTwo = new User("Ibin husen", "ibin@husen.com");
 
-userOne.login().logout();
-userTwo.logout();
+var users = [userOne, userTwo];
+
+class Admin extends User {
+  deleteUser(user) {
+    users = users.filter((u) => u.name != user.name);
+  }
+}
+
+var admin = new Admin("rijal2", "rijal ke dua");
+
+admin.deleteUser(userTwo);
+
+console.log(users);
